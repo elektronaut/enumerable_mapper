@@ -29,7 +29,7 @@ Install from GitHub:
   
 == API Documentation
 
-Is available at http://enumerable_mapper.rubyforge.org
+Is available at http://enum-mapper.rubyforge.org
 
 == Source code
 

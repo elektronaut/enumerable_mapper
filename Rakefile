@@ -9,7 +9,7 @@ begin
     gem.email = "inge@elektronaut.no"
     gem.homepage = "http://github.com/elektronaut/enumerable_mapper"
     gem.authors = ["Inge Jørgensen"]
-	gem.rubyforge_project = 'enumerable_mapper'
+	gem.rubyforge_project = 'enum-mapper'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
@@ -52,7 +52,7 @@ begin
         )
 
         host = "#{config['username']}@rubyforge.org"
-        remote_dir = "/var/www/gforge-projects/enumerable_mapper/"
+        remote_dir = "/var/www/gforge-projects/enum-mapper/"
         local_dir = 'rdoc'
 
         Rake::SshDirPublisher.new(host, remote_dir, local_dir).upload
