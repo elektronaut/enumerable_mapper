@@ -1,50 +1,45 @@
-= Vector2d
+= enumerable_mapper
 
-Vector2d allows for easy handling of two-dimensionals coordinates and vectors.
-It's very flexible, most methods accepts arguments as strings, arrays, hashes
-or Vector2d objects.
+enumerable_mapper is a Ruby library that provides a shorthand for 
+simple .map/.collect calls on collections. Also supports grouping.
 
 == Installation
 
 Install from RubyForge:
 
-  sudo gem install vector2d
+  sudo gem install enumerable_mapper
 
 Install from GitHub:
 
   gem sources -a http://gems.github.com
-  sudo gem install elektronaut-vector2d
+  sudo gem install elektronaut-enumerable_mapper
 
-== Usage examples
+== Usage
 
-  require 'vector2d'
+  require 'enumerable_mapper'
 
-  # These are equal
-  v = Vector2d.new(50, 70)  
-  v = Vector2d.new('50x70')
+  # Collecting
+  people = Person.find(:all)
+  emails = people.collected.email # Equivalent of people.collect{|p| p.email}
 
-  v.aspect_ratio # => 0.714285714285714
-  v.length       # => 86.0232526704263
-
-  # Calculations work as expected
-  v * 2                   # => #<Vector2d:0x5d994 @y=140.0, @x=100.0>
-  v + Vector2d.new(20,30) # => #<Vector2d:0x59c54 @y=100.0, @x=70.0>
-
-  v.constrain_both(64, 64) # => #<Vector2d:0x47e28 @y=64.0, @x=45.7142857142857>
-
+  # Grouping
+  people = Person.find(:all)
+  people_by_company = people.grouped_by(:company)
+  people_by_year    = people.grouped_by{|p| p.born_on.year}
+  
 == API Documentation
 
-Is available at http://vector2d.rubyforge.org
+Is available at http://enumerable_mapper.rubyforge.org
 
 == Source code
 
-Is available at http://github.com/elektronaut/vector2d
+Is available at http://github.com/elektronaut/enumerable_mapper
 
 == Licence
 
 (The MIT License)
 
-Copyright (c) 2006-2009 Inge Jørgensen
+Copyright (c) 2007-2009 Inge Jørgensen
  
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
